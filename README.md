@@ -1,9 +1,3 @@
----
-noteId: "b7f87b109d9c11f1a87867b12e8a7cff"
-tags: []
-
----
-
 # RAG Agent
 
 A small chat agent that answers questions using your own documents. Drop some PDFs in, ask questions in the terminal, and it looks things up instead of just guessing.
