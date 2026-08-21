@@ -1,0 +1,4 @@
+llm: gpt-o4
+embedder: text-embedding-3-small
+embedding_dir: vectors
+pdf_dir: documents

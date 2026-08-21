@@ -219,3 +219,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# vector database
+vectors/*
+!vectors/.gitkeep
+# docs folder
+documents/*
+!documents/.gitkeep
+
