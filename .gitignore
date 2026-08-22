@@ -227,3 +227,5 @@ vectors/*
 documents/*
 !documents/.gitkeep
 
+#macos
+.DS_Store
