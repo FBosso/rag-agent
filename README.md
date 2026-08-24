@@ -1,10 +1,10 @@
 # RAG Agent
 
-A small chat agent that answers questions using your own documents. Drop some PDFs in, ask questions in the terminal, and it looks things up instead of just guessing.
+A small toolkit for building and chatting with your own knowledge bases. Feed it documents (your own PDFs, or research gathered automatically from the web) and ask questions in the terminal instead of guessing.
 
 ## How it works
 
-Under the hood it's a simple retrieval-augmented generation setup: your PDFs get split into chunks and embedded into a local vector store, and when you ask something, the agent searches that store for relevant context before answering.
+Under the hood it's a retrieval-augmented generation setup built on LangGraph: content gets split into chunks and embedded into a local vector store, and when you ask something, an agent searches that store for relevant context before answering. Knowledge bases can be filled in two ways: by pointing the agent at your own PDFs, or by letting a multi-agent researcher search the web, interviews, and video transcripts for a given person and store what it finds.
 
 ## Getting started
 
@@ -18,23 +18,18 @@ Under the hood it's a simple retrieval-augmented generation setup: your PDFs get
    OPENAI_API_KEY=your-key-here
    ```
 
-3. Drop some PDFs into the `documents/` folder, then ingest them:
-   ```
-   python ingest_documents.py
-   ```
+3. Build a knowledge base, either by:
+   - dropping PDFs into the `documents/` folder and ingesting them, or
+   - running the knowledge base constructor to research a person from the web
 
-4. Start chatting:
-   ```
-   python main.py
-   ```
-
-   Type your questions, and type `exit` whenever you're done.
+4. Start chatting with the agent about the ingested content.
 
 ## Project layout
 
-- `config.py` – model, embedder, and vector store setup
+- `config.py` – shared model, embedder, and vector store setup
 - `ingest_documents.py` – loads PDFs and stores them as vectors
-- `main.py` – the chat loop
-- `graph.py`, `nodes.py`, `tools.py`, `state_schema.py` – the agent's internal wiring
+- `main.py`, `graph.py`, `nodes.py`, `tools.py`, `state_schema.py` – the chat agent and its internal wiring
+- `knowledge_base_constructor/` – multi-agent pipeline that researches a person online and stores what it finds
 - `documents/` – where you put source PDFs
 - `vectors/` – the local vector database
+- `notebooks/` – exploratory notebooks (e.g. visualizing stored vectors)
