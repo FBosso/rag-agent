@@ -33,3 +33,7 @@ Under the hood it's a retrieval-augmented generation setup built on LangGraph: c
 - `documents/` – where you put source PDFs
 - `vectors/` – the local vector database
 - `notebooks/` – exploratory notebooks (e.g. visualizing stored vectors)
+
+## License
+
+MIT — see [LICENSE](LICENSE).
